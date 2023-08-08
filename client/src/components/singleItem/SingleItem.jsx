@@ -32,7 +32,7 @@ export default function SingleItem() {
 			setItemDate(jsonData);
 			setSizeArray(jsonData.sizes);
 			setRandomData(randomDataJson);
-
+			console.log(sizeArray);
 			setLoading(false);
 		};
 
