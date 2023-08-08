@@ -21,8 +21,10 @@ export default function SingleFrame() {
 	const [click, isClick] = useState(1);
 	useEffect(() => {
 		const callMe = async () => {
-			const data = await fetch(`http://localhost:3000/item/${fullUrl}`);
-			const randomData = await fetch(`http://localhost:3000/random`);
+			const data = await fetch(
+				`https://satanic-omega.vercel.app/item/${fullUrl}`
+			);
+			const randomData = await fetch(`https://satanic-omega.vercel.app/random`);
 			const jsonData = await data.json();
 			const randomDataJson = await randomData.json();
 			setItemDate(jsonData);

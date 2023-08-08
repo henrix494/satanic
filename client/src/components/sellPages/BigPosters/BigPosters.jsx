@@ -8,7 +8,9 @@ export default function BigPosters() {
 	useEffect(() => {
 		const callMe = async () => {
 			setIsLoading(true);
-			const data = await fetch(`http://localhost:3000/items/big_posters`);
+			const data = await fetch(
+				`https://satanic-omega.vercel.app/items/big_posters`
+			);
 			const jsonData = await data.json();
 			setData(jsonData);
 			setIsLoading(false);

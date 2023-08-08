@@ -7,12 +7,15 @@ export default function WomanShirts() {
 	useEffect(() => {
 		const callMe = async () => {
 			setIsLoading(true);
-			const data = await fetch(`http://localhost:3000/items/woman_shirt`, {
-				headers: {
-					"Content-Type": "application/json",
-					Accept: "application/json",
-				},
-			});
+			const data = await fetch(
+				`https://satanic-omega.vercel.app/items/woman_shirt`,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json",
+					},
+				}
+			);
 			const jsonData = await data.json();
 			console.log(jsonData);
 			setData(jsonData);

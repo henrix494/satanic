@@ -8,7 +8,7 @@ export default function AllItems() {
 	useEffect(() => {
 		const callMe = async () => {
 			setIsLoading(true);
-			const data = await fetch(`http://localhost:3000/allItems`);
+			const data = await fetch(`https://satanic-omega.vercel.app/allItems`);
 			const jsonData = await data.json();
 			setData(jsonData);
 			setIsLoading(false);
