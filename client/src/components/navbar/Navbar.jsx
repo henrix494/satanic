@@ -66,12 +66,20 @@ export default function Navbar() {
 				<div className="flex gap-5  items-center ">
 					{" "}
 					<div className=" ">
-						<img
-							onClick={() => setIsHam((prev) => !prev)}
-							className="w-[30px]"
-							src={menu}
-							alt=""
-						/>
+						{isHam ? (
+							<p className="text-2xl" onClick={() => setIsHam((prev) => !prev)}>
+								{" "}
+								X
+							</p>
+						) : (
+							<img
+								onClick={() => setIsHam((prev) => !prev)}
+								className="w-[30px]"
+								src={menu}
+								alt=""
+							/>
+						)}
+
 						<div
 							className={`w-[80vw] absolute left-0 top-[100%] bg-[white] h-[100vh]  transition-all ${
 								isHam ? "translate-x-0 " : "translate-x-[-100%]"
@@ -79,36 +87,44 @@ export default function Navbar() {
 							<div className="text-black text-right px-10 z-40">
 								{" "}
 								<div className="flex gap-10 text-2xl flex-col mt-10 font-mono font-bold">
-									<Link to={"/"} className=" border-b-2 border-black pb-2">
+									<Link
+										to={"/"}
+										onClick={() => setIsHam(false)}
+										className=" border-b-2 border-black pb-2">
 										{" "}
 										<h4>בית</h4>
 									</Link>
 
 									<Link
 										className=" border-b-2 border-black pb-2"
-										to={"/all_items"}>
+										to={"/all_items"}
+										onClick={() => setIsHam(false)}>
 										<h4>הכל</h4>
 									</Link>
 
 									<Link
 										className=" border-b-2 border-black pb-2"
-										to={"/frames"}>
+										to={"/frames"}
+										onClick={() => setIsHam(false)}>
 										<h4>תמונות קיר</h4>
 									</Link>
 									<Link
 										className=" border-b-2 border-black pb-2"
-										to={"/bigPosters"}>
+										to={"/bigPosters"}
+										onClick={() => setIsHam(false)}>
 										<h4>פוסרים</h4>
 									</Link>
 
 									<Link
 										className=" border-b-2 border-black pb-2"
-										to={"/man_shirts"}>
+										to={"/man_shirts"}
+										onClick={() => setIsHam(false)}>
 										<h4>גברים</h4>
 									</Link>
 									<Link
 										className=" border-b-2 border-black pb-2"
-										to={"/woman_shirts"}>
+										to={"/woman_shirts"}
+										onClick={() => setIsHam(false)}>
 										<h4>נשים</h4>
 									</Link>
 									<img className="w-7 cursor-pointer" src={heart} alt="" />
