@@ -49,7 +49,9 @@ export default function Navbar() {
 							<h4>נשים</h4>
 						</Link>
 
-						<img className="w-7 cursor-pointer" src={heart} alt="" />
+						<p className="hover:opacity-80 transition-all cursor-pointer">
+							עלינו
+						</p>
 
 						<Link to={"/cart"}>
 							<div className=" relative">
@@ -127,7 +129,7 @@ export default function Navbar() {
 										onClick={() => setIsHam(false)}>
 										<h4>נשים</h4>
 									</Link>
-									<img className="w-7 cursor-pointer" src={heart} alt="" />
+									<p className="hover:opacity-80 transition-all ">עלינו</p>
 									<Link to={"/cart"}>
 										<div className=" relative">
 											<img className="w-5 cursor-pointer" src={cart} alt="" />{" "}
