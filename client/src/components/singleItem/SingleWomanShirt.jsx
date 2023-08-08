@@ -1,28 +1,29 @@
 import { useEffect, useState } from "react";
 import Loading from "../UI/Loading";
-import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../features/CartSlice";
-import { Link, useLocation } from "react-router-dom";
-export default function SingleItem() {
+import { Link } from "react-router-dom";
+export default function SingleWomanShirt() {
 	const [currentButton, setCurrentButton] = useState(0);
 	const [itemDate, setItemDate] = useState([]);
 	const [sizeArray, setSizeArray] = useState([]);
-	const [currentSize, setCurrentSize] = useState(sizeArray[0]);
-	const [price, setPrice] = useState(30);
+	const [currentSize, setCurrentSize] = useState(`XS`);
+	const [price, setPrice] = useState(80);
 	const [highPrice, setHighPrice] = useState(40);
 	const [loading, setLoading] = useState(true);
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
+
 	const location = useLocation();
 	const pathnameParts = location.pathname.split("/");
 	const itemId = pathnameParts[pathnameParts.length - 1];
-
 	const dispatch = useDispatch();
+	const titleTest = useSelector((state) => state.cart.items);
 	const [click, isClick] = useState(1);
 	useEffect(() => {
 		const callMe = async () => {
-			setLoading(true);
-
 			const data = await fetch(
 				`https://satanic-omega.vercel.app/item/${itemId}`
 			);
@@ -40,9 +41,10 @@ export default function SingleItem() {
 		callMe();
 	}, [click]);
 	console.log(itemId);
-
+	console.log(itemDate);
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);
+		console.log(titleTest);
 		setCurrentButton(index);
 		if (
 			itemDate._id === "64cceb88690de501437f2475" ||
