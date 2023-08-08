@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Loading from "../UI/Loading";
+import { useLocation } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../features/CartSlice";
 import { Link } from "react-router-dom";
@@ -14,8 +16,8 @@ export default function SingleManShirt() {
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
 
-	const loction = window.location;
-	const pathnameParts = loction.pathname.split("/");
+	const location = useLocation();
+	const pathnameParts = location.pathname.split("/");
 	const itemId = pathnameParts[pathnameParts.length - 1];
 	const dispatch = useDispatch();
 	const titleTest = useSelector((state) => state.cart.items);

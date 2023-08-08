@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Loading from "../UI/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../features/CartSlice";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 export default function SingleFrame() {
 	const [currentButton, setCurrentButton] = useState(0);
 	const [itemDate, setItemDate] = useState([]);
@@ -12,8 +12,8 @@ export default function SingleFrame() {
 	const [loading, setLoading] = useState(true);
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
-	const loction = window.location.href;
-	const pathnameParts = loction.pathname.split("/");
+	const location = useLocation();
+	const pathnameParts = location.pathname.split("/");
 	const itemId = pathnameParts[pathnameParts.length - 1];
 	const dispatch = useDispatch();
 	const titleTest = useSelector((state) => state.cart.items);
