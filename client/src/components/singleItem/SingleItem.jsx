@@ -7,7 +7,7 @@ export default function SingleItem() {
 	const [currentButton, setCurrentButton] = useState(0);
 	const [itemDate, setItemDate] = useState([]);
 	const [sizeArray, setSizeArray] = useState([]);
-	const [currentSize, setCurrentSize] = useState(sizeArray[0]);
+	const [currentSize, setCurrentSize] = useState(`100x75 ס"מ`);
 	const [price, setPrice] = useState(30);
 	const [highPrice, setHighPrice] = useState(40);
 	const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ export default function SingleItem() {
 			setItemDate(jsonData);
 			setSizeArray(jsonData.sizes);
 			setRandomData(randomDataJson);
-			console.log(sizeArray);
+
 			setLoading(false);
 		};
 

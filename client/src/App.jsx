@@ -9,6 +9,7 @@ import Cart from "./components/cart/Cart";
 import AllManShirts from "./components/sellPages/Man_shirt/AllmanShirts";
 import SingleManShirt from "./components/singleItem/SingleManShirt";
 import WomanShirts from "./components/sellPages/WomanShirts/WomanShirts";
+import SingleWomanShirt from "./components/singleItem/SingleWomanShirt";
 import AllItems from "./components/Allitems/AllItems";
 import { Routes, Route } from "react-router-dom";
 function App() {
@@ -34,6 +35,7 @@ function App() {
 				<Route path="/bigPosters" element={<BigPosters />} />
 				<Route path="/frames" element={<Frames />} />
 				<Route path="/man_shirt_s/:id" element={<SingleManShirt />} />
+				<Route path="/SingleWomanShirts/:id" element={<SingleWomanShirt />} />
 				<Route path="/man_shirts" element={<AllManShirts />} />
 				<Route path="/woman_shirts" element={<WomanShirts />} />
 				<Route path="/all_items" element={<AllItems />} />
