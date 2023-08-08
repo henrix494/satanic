@@ -24,19 +24,24 @@ export default function SingleManShirt() {
 	const [click, isClick] = useState(1);
 	useEffect(() => {
 		const callMe = async () => {
-			const data = await fetch(`https://satanic-omega.vercel.app/${itemId}`);
+			const data = await fetch(
+				`https://satanic-omega.vercel.app/item/${itemId}`
+			);
 			const randomData = await fetch(`https://satanic-omega.vercel.app/random`);
 			const jsonData = await data.json();
 			const randomDataJson = await randomData.json();
 			setItemDate(jsonData);
 			setSizeArray(jsonData.sizes);
 			setRandomData(randomDataJson);
+
 			setLoading(false);
 		};
 
 		scrollTo(0, 0);
 		callMe();
 	}, [click]);
+	console.log(itemId);
+	console.log(itemDate);
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);
 		console.log(titleTest);
@@ -218,7 +223,6 @@ export default function SingleManShirt() {
 					</div>
 					<div className="flex  justify-center max-lg:flex-col max-lg:gap-10">
 						{randomData.map((item) => {
-							console.log(item);
 							return (
 								<div key={item._id} className="flex justify-center  ">
 									<div className="w-[80%]">
