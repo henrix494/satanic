@@ -11,6 +11,7 @@ import SingleManShirt from "./components/singleItem/SingleManShirt";
 import WomanShirts from "./components/sellPages/WomanShirts/WomanShirts";
 import SingleWomanShirt from "./components/singleItem/SingleWomanShirt";
 import AllItems from "./components/Allitems/AllItems";
+import Bill from "./components/bill/Bill";
 import { Routes, Route } from "react-router-dom";
 function App() {
 	return (
@@ -42,7 +43,12 @@ function App() {
 				<Route path="/item/:id" element={<SingleItem />} />{" "}
 				<Route path="/frame/:id" element={<SingleFrame />} />
 				<Route path="/cart" element={<Cart />} />
+				<Route path="/bill" element={<Bill />} />
 			</Routes>
+			<div className="w-screem h-[50px] bg-[gray] text-white flex items-center justify-center ">
+				{" "}
+				&hearts; NPN עוצב על ידי{" "}
+			</div>
 		</>
 	);
 }

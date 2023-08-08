@@ -57,12 +57,12 @@ export default function Cart() {
 							</div>{" "}
 						</div>
 					</div>{" "}
-					<div className="flex  w-[70vw] mt-10 relative max-lg:hidden flex-col gap-10  ">
+					<div className="flex  w-[70vw] mt-10 relative max-lg:hidden flex-col   ">
 						{titleTest.map((item) => {
 							return (
 								<div
 									key={item.id}
-									className=" flex justify-around items-center   text-xl max-lg:text-xl border-b-2 pb-10 relative ">
+									className=" flex justify-around items-center   text-xl max-lg:text-xl border-b-2 pb-10 relative gap-10">
 									{" "}
 									<div className="flex-[0.8] max-lg:flex-1">
 										{" "}
@@ -92,13 +92,25 @@ export default function Cart() {
 								</div>
 							);
 						})}{" "}
-						<div className="bg-[#F2F2F2] w-full h-[50px] flex flex-row-reverse items-center text-2xl font-bold ">
-							{" "}
-							<div className="flex gap-2">
-								<p>שקלים</p>
-								<p>{totalAmount}</p>
+						<div className="flex flex-col gap-4">
+							<div className="bg-[#F2F2F2] w-full h-[50px] flex flex-row-reverse items-center text-2xl font-bold ">
+								{" "}
+								<div className="flex gap-2">
+									<p>שקלים</p>
+									<p>{totalAmount}</p>
 
-								<p>סך הכל</p>
+									<p>סך הכל</p>
+								</div>
+							</div>
+							<div>
+								<Link to={"/bill"}>
+									<button className=" border-2 px-20 py-2 bg-black text-white">
+										צ`ק אאוט
+									</button>
+								</Link>
+							</div>
+							<div>
+								<p className=" text-xl text-[red]">המשך בקניות</p>
 							</div>
 						</div>
 					</div>{" "}
@@ -143,6 +155,13 @@ export default function Cart() {
 
 						<p>סך הכל</p>
 					</div>
+				</div>
+				<div className="mt-10">
+					<Link to={"/bill"}>
+						<button className=" border-2 px-20 py-2 bg-black text-white">
+							צ`ק אאוט
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>
