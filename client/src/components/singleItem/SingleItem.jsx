@@ -14,9 +14,9 @@ export default function SingleItem() {
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
 	const loction = window.location.href;
-	const cutUrl = loction.indexOf(loction.indexOf("64d") === -1 ? "64c" : "64d");
+	const pathnameParts = loction.pathname.split("/");
+	const itemId = pathnameParts[pathnameParts.length - 1];
 
-	const fullUrl = loction.slice(cutUrl);
 	const dispatch = useDispatch();
 	const [click, isClick] = useState(1);
 	useEffect(() => {
@@ -24,7 +24,7 @@ export default function SingleItem() {
 			setLoading(true);
 
 			const data = await fetch(
-				`https://satanic-omega.vercel.app/item/${fullUrl}`
+				`https://satanic-omega.vercel.app/item/${itemId}`
 			);
 			const randomData = await fetch(`https://satanic-omega.vercel.app/random`);
 			const jsonData = await data.json();

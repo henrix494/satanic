@@ -13,16 +13,15 @@ export default function SingleFrame() {
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
 	const loction = window.location.href;
-	const cutUrl = loction.indexOf(loction.indexOf("64d") === -1 ? "64c" : "64d");
-
-	const fullUrl = loction.slice(cutUrl);
+	const pathnameParts = loction.pathname.split("/");
+	const itemId = pathnameParts[pathnameParts.length - 1];
 	const dispatch = useDispatch();
 	const titleTest = useSelector((state) => state.cart.items);
 	const [click, isClick] = useState(1);
 	useEffect(() => {
 		const callMe = async () => {
 			const data = await fetch(
-				`https://satanic-omega.vercel.app/item/${fullUrl}`
+				`https://satanic-omega.vercel.app/item/${itemId}`
 			);
 			const randomData = await fetch(`https://satanic-omega.vercel.app/random`);
 			const jsonData = await data.json();
