@@ -14,7 +14,7 @@ export default function SingleManShirt() {
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
 
-	const loction = window.location.href;
+	const loction = window.location;
 	const pathnameParts = loction.pathname.split("/");
 	const itemId = pathnameParts[pathnameParts.length - 1];
 	const dispatch = useDispatch();
