@@ -34,7 +34,7 @@ export default function WomanShirts() {
 						return (
 							<div key={item.id}>
 								{" "}
-								<Link to={`/man_shirt_s/${item._id}`}>
+								<Link to={`/SingleWomanShirts/${item._id}`}>
 									{" "}
 									<img
 										className={"w-[600px] rounded-xl hover:cursor-pointer"}
