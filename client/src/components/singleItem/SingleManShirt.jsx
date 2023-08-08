@@ -15,7 +15,7 @@ export default function SingleManShirt() {
 	const [randomData, setRandomData] = useState([]);
 
 	const loction = window.location.href;
-	const cutUrl = loction.search("64d");
+	const cutUrl = loction.indexOf(loction.indexOf("64d") === -1 ? "64c" : "64d");
 	const fullUrl = loction.slice(cutUrl);
 	const dispatch = useDispatch();
 	const titleTest = useSelector((state) => state.cart.items);
