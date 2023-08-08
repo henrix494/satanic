@@ -171,7 +171,15 @@ export default function SingleFrame() {
 										{" "}
 										<Link
 											onClick={() => isClick((prev) => !prev)}
-											to={`/item/${item._id}`}>
+											to={
+												(item.category === "big_posters" &&
+													`/item/${item._id}`) ||
+												(item.category === "frames" && `/frame/${item._id}`) ||
+												(item.category === "man_shirt" &&
+													`/man_shirt_s/${item._id}`) ||
+												(item.category === "woman_shirt" &&
+													`/SingleWomanShirts/${item._id}`)
+											}>
 											{" "}
 											<div>
 												<img
