@@ -8,7 +8,7 @@ async function createShipingInfo(req, res) {
 		await req.body;
 	try {
 		if (!email) {
-			return res.status(401).json("נא להזין שם");
+			return res.status(401).json("נא להזין אמייל");
 		}
 		if (!name) {
 			return res.status(401).json("נא להזין שם משפחה");
@@ -67,32 +67,14 @@ async function createShipingInfo(req, res) {
 					},
 					CartItems: [
 						{
-							Amount:
-								currentItem === "/src/assets/doble.png" ||
-								currentItem === "/assets/doble-cec3014e.png"
-									? 1699
-									: 1499,
+							Amount: 1,
+
 							Currency: "ILS",
-							Name:
-								currentItem === "/src/assets/doble.png" ||
-								currentItem === "/assets/doble-cec3014e.png"
-									? "מכונת קפה פלוס מטחנת קפה"
-									: " BRL 3605 מכונת קפה ",
-							Description:
-								currentItem === "/src/assets/doble.png" ||
-								currentItem === "/assets/doble-cec3014e.png"
-									? "חבילת קפה שכלול בה מכונת קפה שלנו פלוס מטכנת קפה לחווית קפה מושלמת"
-									: "מכונת קפה ידנית לחווית קפה מושלמת",
-							Quantity:
-								currentItem === "/src/assets/doble.png" ||
-								currentItem === "/assets/doble-cec3014e.png"
-									? amountTwo
-									: amountOne,
+							Name: " BRL 3605 מכונת קפה ",
+							Description: "מכונת קפה ידנית לחווית קפה מושלמת",
+							Quantity: 1,
 							Image:
-								currentItem === "/src/assets/doble.png" ||
-								currentItem === "/assets/doble-cec3014e.png"
-									? "https://www.kapit-coffee.com/assets/doble-cec3014e.png"
-									: "https://www.kapit-coffee.com/assets/Gemilai-CRM3605-2022pp-bda5843b.png",
+								"https://www.kapit-coffee.com/assets/Gemilai-CRM3605-2022pp-bda5843b.png",
 							IsTaxFree: "false",
 							AdjustAmount: "false",
 						},
