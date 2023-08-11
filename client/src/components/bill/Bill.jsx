@@ -5,7 +5,7 @@ export default function Bill() {
 		return total + item.price * item.que;
 	}, 0);
 	const postHandler = async () => {
-		const data = await fetch("https://satanic-omega.vercel.app/postShip", {
+		const data = await fetch("https://satanic-omega.vercel.app/payNow", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
