@@ -54,8 +54,8 @@ async function createShipingInfo(req, res) {
 						MaxQuantity: "12",
 					},
 					Customer: {
-						Email: email,
-						Name: name,
+						Email: "someOne@gmail.com",
+						Name: "someOne",
 						PhoneNumber: "05418481851",
 						HolderId: "",
 						Attributes: {
@@ -109,11 +109,11 @@ async function createShipingInfo(req, res) {
 				res.status(200).json(zCreditData);
 			} catch (error) {
 				console.error(error);
-				res.status(500).json({ error: "An error occurred." });
+				res.status(500).json({ error: error });
 			}
 		}
 	} catch (error) {
-		console.log(error);
+		res.status(500).json({ error: error });
 	}
 }
 
