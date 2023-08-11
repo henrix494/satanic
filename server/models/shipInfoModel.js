@@ -23,6 +23,7 @@ const shipInfoSchema = new Schema({
 		type: String,
 	},
 });
-const shipInfo = models.shipInfo || model("shipInfo", shipInfoSchema);
+const ShippingInfo =
+	models.ShippingInfo || model("ShippingInfo", shipInfoSchema);
 
-module.exports = shipInfo;
+module.exports = { ShippingInfo };
