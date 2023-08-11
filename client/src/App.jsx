@@ -16,10 +16,10 @@ import { Routes, Route } from "react-router-dom";
 function App() {
 	return (
 		<>
+			{" "}
 			<div className=" relative  ">
 				<Navbar />
 			</div>
-
 			<Routes>
 				<Route
 					path="/"

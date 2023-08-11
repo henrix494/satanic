@@ -11,7 +11,7 @@ export default function Cart() {
 	}, 0);
 	return (
 		<div
-			className={` mt-40 flex  flex-col items-end text-right max-lg:w-full max-lg:px-4 ${
+			className={` mt-40 flex  flex-col items-end text-right max-lg:w-full max-lg:px-4 mb-10 ${
 				titleTest.length === 0 ? "w-full " : "w-[80vw]"
 			} `}>
 			<div className=" relative">
@@ -104,7 +104,10 @@ export default function Cart() {
 							</div>
 							<div>
 								<Link to={"/bill"}>
-									<button className=" border-2 px-20 py-2 bg-black text-white">
+									<button
+										className={` border-2 px-20 py-2 bg-black text-white hover:opacity-80 transition-all ${
+											titleTest.length === 0 && "hidden"
+										}`}>
 										צ`ק אאוט
 									</button>
 								</Link>
@@ -158,7 +161,10 @@ export default function Cart() {
 				</div>
 				<div className="mt-10">
 					<Link to={"/bill"}>
-						<button className=" border-2 px-20 py-2 bg-black text-white">
+						<button
+							className={` border-2 px-20 py-2 bg-black text-white ${
+								titleTest.length === 0 && "hidden"
+							} `}>
 							צ`ק אאוט
 						</button>
 					</Link>

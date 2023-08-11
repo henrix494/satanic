@@ -1,14 +1,36 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 export default function Bill() {
 	const cartData = useSelector((state) => state.cart.items);
 	const totalAmount = cartData.reduce((total, item) => {
 		return total + item.price * item.que;
 	}, 0);
+	const postHandler = async () => {
+		const data = await fetch("https://satanic-omega.vercel.app/postShip", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({}),
+		});
+
+		if (data.status === 401) {
+			const resData = await data.json();
+			console.log(resData);
+		}
+		if (data.status === 200) {
+			const resData = await data.json();
+
+			console.log(resData);
+			window.open(data.sessionUrl.Data.SessionUrl);
+		}
+	};
 	return (
-		<div className="flex justify-center ">
+		<div className="flex justify-center mb-20 ">
 			<div className="flex mt-40 max-lg:flex-col ">
 				<div className=" border-r-2  pr-10 max-lg:px-10 w-[30vw] max-lg:w-full max-lg:order-2">
-					<div className="flex flex-col text-right gap-6">
+					<form
+						onSubmit={() => postHandler}
+						className="flex flex-col text-right gap-6">
 						<label className="text-3xl font-bold" htmlFor="email">
 							אמייל
 						</label>
@@ -76,8 +98,8 @@ export default function Bill() {
 								placeholder="מספר פאלפון"
 							/>
 						</div>
-					</div>{" "}
-					<div className=" bg-black text-white py-2 mt-4  text-center">
+					</form>{" "}
+					<div className=" bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">
 						<button>המשך לתשלום</button>
 					</div>
 				</div>
