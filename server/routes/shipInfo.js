@@ -75,18 +75,19 @@ async function createShipingInfo(req, res) {
 						},
 					},
 					CartItems: [
-						{
-							Amount: 1,
+						cart.map((item) => {
+							return {
+								Amount: item.price,
 
-							Currency: "ILS",
-							Name: " BRL 3605 מכונת קפה ",
-							Description: "מכונת קפה ידנית לחווית קפה מושלמת",
-							Quantity: 1,
-							Image:
-								"https://www.kapit-coffee.com/assets/Gemilai-CRM3605-2022pp-bda5843b.png",
-							IsTaxFree: "false",
-							AdjustAmount: "false",
-						},
+								Currency: "ILS",
+								Name: item.title,
+								Description: "מכונת קפה ידנית לחווית קפה מושלמת",
+								Quantity: item.que,
+								Image: item.img,
+								IsTaxFree: "false",
+								AdjustAmount: "false",
+							};
+						}),
 					],
 					FocusType: "None",
 					CardsIcons: {

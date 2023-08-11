@@ -30,6 +30,7 @@ export default function Bill() {
 				street: streetRef.current.value,
 				numOfAprt: homeNumRef.current.value,
 				phone: phoneRef.current.value,
+				cart: cartData,
 			}),
 		});
 
@@ -39,9 +40,8 @@ export default function Bill() {
 		}
 		if (data.status === 200) {
 			const resData = await data.json();
-
+			console.log(cartData);
 			console.log(resData);
-			window.open(data.sessionUrl.Data.SessionUrl);
 		}
 	};
 	return (
