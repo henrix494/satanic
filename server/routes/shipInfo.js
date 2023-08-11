@@ -42,7 +42,7 @@ async function createShipingInfo(req, res) {
 			await newShipingInfo.save();
 
 			try {
-				const cartItems = req.body.map((item) => ({
+				const cartItems = cart.map((item) => ({
 					Amount: item.price,
 					Currency: "ILS",
 					Name: item.title,
