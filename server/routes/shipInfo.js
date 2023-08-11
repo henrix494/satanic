@@ -19,18 +19,18 @@ async function createShipingInfo(req, res) {
 		if (!phone) {
 			return res.status(401).json("נא להזין רחוב");
 		} else {
-			// await connectToDB();
-			// const newShipingInfo = new shipInfo({
-			// 	email: email,
-			// 	name: name,
-			// 	lastName: lastName,
-			// 	city: city,
-			// 	street: street,
-			// 	numOfAprt: numOfAprt,
-			// 	phone: phone,
-			// });
+			await connectToDB();
+			const newShipingInfo = new shipInfo({
+				email: email,
+				name: name,
+				lastName: lastName,
+				city: city,
+				street: street,
+				numOfAprt: numOfAprt,
+				phone: phone,
+			});
 
-			// await newShipingInfo.save();
+			await newShipingInfo.save();
 
 			try {
 				const requestBody = {
