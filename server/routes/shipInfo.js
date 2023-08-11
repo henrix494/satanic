@@ -4,20 +4,29 @@ const { ShippingInfo } = require("../models/shipInfoModel");
 const { connectToDB } = require("../utils/mongo");
 
 async function createShipingInfo(req, res) {
-	const { email, name, lastName, city, street, numOfAprt, phone } =
-		await req.body;
+	const {
+		email,
+		name,
+		lastName,
+		city,
+		street,
+		numOfAprt,
+		phone,
+		totalAmount,
+		cart,
+	} = await req.body;
 	try {
 		if (!email) {
 			return res.status(401).json("נא להזין אמייל");
 		}
 		if (!name) {
-			return res.status(401).json("נא להזין שם משפחה");
+			return res.status(401).json("נא להזין שם ");
 		}
 		if (!street) {
-			return res.status(401).json("נא להזין עיר");
+			return res.status(401).json("נא להזין רחוב");
 		}
 		if (!phone) {
-			return res.status(401).json("נא להזין רחוב");
+			return res.status(401).json("נא להזין מספר פאלפון");
 		} else {
 			await connectToDB();
 			const newShipingInfo = new ShippingInfo({
@@ -106,7 +115,7 @@ async function createShipingInfo(req, res) {
 				);
 
 				const zCreditData = await zCreditResponse.json();
-				res.status(200).json(zCreditData);
+				res.status(200).json({ sessionUrl: zCreditData });
 			} catch (error) {
 				res.status(500).json(error);
 			}

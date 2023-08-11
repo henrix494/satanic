@@ -1,16 +1,36 @@
 import { useSelector } from "react-redux";
+import { useRef } from "react";
 export default function Bill() {
 	const cartData = useSelector((state) => state.cart.items);
 	const totalAmount = cartData.reduce((total, item) => {
 		return total + item.price * item.que;
 	}, 0);
-	const postHandler = async () => {
+	const emailRef = useRef(null);
+	const nameRef = useRef(null);
+	const famelyNameRef = useRef(null);
+	const fullAdressRef = useRef(null);
+	const cityRef = useRef(null);
+	const streetRef = useRef(null);
+	const homeNumRef = useRef(null);
+	const phoneRef = useRef(null);
+
+	const postHandler = async (e) => {
+		e.preventDefault();
+
 		const data = await fetch("https://satanic-omega.vercel.app/payNow", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({}),
+			body: JSON.stringify({
+				email: emailRef.current.value,
+				name: nameRef.current.value,
+				lastName: famelyNameRef.current.value,
+				city: cityRef.current.value,
+				street: streetRef.current.value,
+				numOfAprt: homeNumRef.current.value,
+				phone: phoneRef.current.value,
+			}),
 		});
 
 		if (data.status === 401) {
@@ -29,7 +49,7 @@ export default function Bill() {
 			<div className="flex mt-40 max-lg:flex-col ">
 				<div className=" border-r-2  pr-10 max-lg:px-10 w-[30vw] max-lg:w-full max-lg:order-2">
 					<form
-						onSubmit={() => postHandler}
+						onSubmit={(e) => postHandler(e)}
 						className="flex flex-col text-right gap-6">
 						<label className="text-3xl font-bold" htmlFor="email">
 							אמייל
@@ -39,6 +59,7 @@ export default function Bill() {
 							type="text"
 							name="email"
 							id="email"
+							ref={emailRef}
 						/>{" "}
 						<h3 className="text-3xl font-bold">משלוח</h3>
 						<div className="flex flex-row-reverse  text-right gap-2">
@@ -48,6 +69,7 @@ export default function Bill() {
 								name="name"
 								id="name"
 								placeholder="שם"
+								ref={nameRef}
 							/>
 							<input
 								className="border-2 h-[40px]  w-1/2 placeholder:text-right"
@@ -55,6 +77,7 @@ export default function Bill() {
 								name="lastName"
 								id="lastName"
 								placeholder=" שם משפחה"
+								ref={famelyNameRef}
 							/>
 						</div>{" "}
 						<div className="  text-right gap-2">
@@ -64,15 +87,17 @@ export default function Bill() {
 								name="adress"
 								id="adress"
 								placeholder="כתובת"
+								ref={fullAdressRef}
 							/>
 						</div>
 						<div className="flex  text-right gap-2">
 							<input
 								className="border-2 h-[40px] w-full placeholder:text-right"
 								type="text"
-								name="city"
-								id="city"
+								name="adress"
+								id="adress"
 								placeholder="מספר בית"
+								ref={homeNumRef}
 							/>{" "}
 							<input
 								className="border-2 h-[40px] w-full placeholder:text-right"
@@ -80,13 +105,15 @@ export default function Bill() {
 								name="adress"
 								id="adress"
 								placeholder="רחוב"
+								ref={streetRef}
 							/>{" "}
 							<input
 								className="border-2 h-[40px] w-full placeholder:text-right"
 								type="text"
-								name="adress"
-								id="adress"
+								name="city"
+								id="city"
 								placeholder="עיר"
+								ref={cityRef}
 							/>
 						</div>{" "}
 						<div className="  text-right gap-2">
@@ -96,6 +123,7 @@ export default function Bill() {
 								name="adress"
 								id="adress"
 								placeholder="מספר פאלפון"
+								ref={phoneRef}
 							/>
 						</div>
 						<div className=" bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">

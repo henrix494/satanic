@@ -11,10 +11,10 @@ const shipInfoSchema = new Schema({
 		type: String,
 	},
 	city: {
-		type: Array,
+		type: String,
 	},
 	street: {
-		type: Array,
+		type: String,
 	},
 	numOfAprt: {
 		type: String,
