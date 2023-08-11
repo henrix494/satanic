@@ -106,7 +106,7 @@ async function createShipingInfo(req, res) {
 				);
 
 				const zCreditData = await zCreditResponse.json();
-				res.status(200).json({ sessionUrl: zCreditData });
+				res.status(200).json(zCreditData);
 			} catch (error) {
 				console.error(error);
 				res.status(500).json({ error: "An error occurred." });
