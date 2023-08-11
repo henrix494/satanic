@@ -42,6 +42,17 @@ async function createShipingInfo(req, res) {
 			await newShipingInfo.save();
 
 			try {
+				const cartItems = req.body.map((item) => ({
+					Amount: item.price,
+					Currency: "ILS",
+					Name: item.title,
+					Description: "מכונת קפה ידנית לחווית קפה מושלמת",
+					Quantity: item.que,
+					Image: item.img[0], // Assuming img is an array, use the first URL
+					IsTaxFree: "false",
+					AdjustAmount: "false",
+				}));
+
 				const requestBody = {
 					Key: process.env.zcredit,
 					Local: "He",
@@ -74,21 +85,7 @@ async function createShipingInfo(req, res) {
 							Email: "optional",
 						},
 					},
-					CartItems: [
-						cart.map((item) => {
-							return {
-								Amount: item.price,
-
-								Currency: "ILS",
-								Name: item.title,
-								Description: "מכונת קפה ידנית לחווית קפה מושלמת",
-								Quantity: item.que,
-								Image: item.img,
-								IsTaxFree: "false",
-								AdjustAmount: "false",
-							};
-						}),
-					],
+					CartItems: cartItems,
 					FocusType: "None",
 					CardsIcons: {
 						ShowVisaIcon: "true",
