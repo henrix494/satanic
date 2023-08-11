@@ -98,10 +98,10 @@ export default function Bill() {
 								placeholder="מספר פאלפון"
 							/>
 						</div>
+						<div className=" bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">
+							<button>המשך לתשלום</button>
+						</div>
 					</form>{" "}
-					<div className=" bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">
-						<button>המשך לתשלום</button>
-					</div>
 				</div>
 				<div className=" ml-5 max-lg:ml-0 max-lg:px-5 w-[30vw] max-lg:w-full flex flex-col gap-10 ">
 					{cartData.map((item) => {
