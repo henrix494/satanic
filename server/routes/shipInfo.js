@@ -56,7 +56,7 @@ async function createShipingInfo(req, res) {
 					Customer: {
 						Email: email,
 						Name: name,
-						PhoneNumber: phone,
+						PhoneNumber: "05418481851",
 						HolderId: "",
 						Attributes: {
 							HolderId: "required",
