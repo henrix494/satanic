@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const { shipInfo } = require("../models/shipInfoModel");
+const { ShippingInfo } = require("../models/shipInfoModel");
 const { connectToDB } = require("../utils/mongo");
 
 async function createShipingInfo(req, res) {
@@ -20,7 +20,7 @@ async function createShipingInfo(req, res) {
 			return res.status(401).json("נא להזין רחוב");
 		} else {
 			await connectToDB();
-			const newShipingInfo = new shipInfo({
+			const newShipingInfo = new ShippingInfo({
 				email: email,
 				name: name,
 				lastName: lastName,
