@@ -24,6 +24,9 @@ const shipInfoSchema = new Schema({
 	},
 	cart:{
 		type :Array
+	},
+	totalPay:{
+		type:Number
 	}
 });
 const ShippingInfo =

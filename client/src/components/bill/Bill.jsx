@@ -33,6 +33,7 @@ export default function Bill() {
 				numOfAprt: homeNumRef.current.value,
 				phone: phoneRef.current.value,
 				cart: cartData,
+				totalAmount:totalAmount
 			}),
 		});
 
