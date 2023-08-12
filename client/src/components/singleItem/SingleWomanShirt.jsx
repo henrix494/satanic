@@ -10,8 +10,8 @@ export default function SingleWomanShirt() {
 	const [itemDate, setItemDate] = useState([]);
 	const [sizeArray, setSizeArray] = useState([]);
 	const [currentSize, setCurrentSize] = useState(`XS`);
-	const [price, setPrice] = useState(80);
-	const [highPrice, setHighPrice] = useState(40);
+	const [price, setPrice] = useState(100);
+	
 	const [loading, setLoading] = useState(true);
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
@@ -44,60 +44,8 @@ export default function SingleWomanShirt() {
 	console.log(itemDate);
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);
-		console.log(titleTest);
 		setCurrentButton(index);
-		if (
-			itemDate._id === "64cceb88690de501437f2475" ||
-			itemDate._id === "64ccee95690de501437f2477"
-		) {
-			switch (true) {
-				case index === 0:
-					setHighPrice(40);
-					break;
-				case index === 1:
-					setHighPrice(50);
-					break;
-				case index === 2:
-					setHighPrice(60);
-					break;
-				case index === 3:
-					setHighPrice(75);
-					break;
-				case index === 4:
-					setHighPrice(85);
-					break;
-				case index === 5:
-					setHighPrice(95);
-					break;
-				case index === 6:
-					setHighPrice(110);
-					break;
-			}
-		} else {
-			switch (true) {
-				case index === 0:
-					setPrice(30);
-					break;
-				case index === 1:
-					setPrice(40);
-					break;
-				case index === 2:
-					setPrice(50);
-					break;
-				case index === 3:
-					setPrice(70);
-					break;
-				case index === 4:
-					setPrice(80);
-					break;
-				case index === 5:
-					setPrice(85);
-					break;
-				case index === 6:
-					setPrice(100);
-					break;
-			}
-		}
+		
 	};
 	const newItem = {
 		id: itemDate._id,
@@ -105,11 +53,7 @@ export default function SingleWomanShirt() {
 		img: itemDate.images,
 		des:itemDate.description,
 		que: amount,
-		price:
-			itemDate._id === "64cceb88690de501437f2475" ||
-			itemDate._id === "64ccee95690de501437f2477"
-				? highPrice
-				: price,
+		price: price,
 		index: currentButton,
 		size: currentSize,
 	};
@@ -141,10 +85,7 @@ export default function SingleWomanShirt() {
 											{" "}
 											<p className=" text-2xl">
 												₪
-												{itemDate._id === "64cceb88690de501437f2475" ||
-												itemDate._id === "64ccee95690de501437f2477"
-													? highPrice
-													: price}
+												{ price}
 											</p>
 										</div>
 										<div>

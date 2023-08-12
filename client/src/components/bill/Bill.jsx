@@ -15,6 +15,8 @@ export default function Bill() {
 	const phoneRef = useRef(null);
 	const[error,setError] = useState("")
 	const [isLoading,setIsLoading] = useState(false)
+	const [isValidEmail, setIsValidEmail] = useState(true);
+
 	const postHandler = async (e) => {
 		e.preventDefault();
 		setIsLoading(true)
@@ -54,6 +56,13 @@ export default function Bill() {
 			
 		}
 	};
+	const handleInputChange = (event) => {
+		const inputValue = event.target.value;
+		const numericValue = inputValue.replace(/\D/g, ''); // Remove non-numeric characters
+		phoneRef.current.value = numericValue;
+	  }; 
+	 
+	
 	return (
 		<div className="flex justify-center mb-20 ">
 			<div className="flex mt-40 max-lg:flex-col ">
@@ -65,8 +74,8 @@ export default function Bill() {
 							אמייל
 						</label>
 						<input
-							className="border-2 h-[40px] text-right"
-							type="text"
+        className={`border-2 h-[40px] text-right`}
+		type="text"
 							name="email"
 							id="email"
 							ref={emailRef}
@@ -129,16 +138,18 @@ export default function Bill() {
 						<div className="  text-right gap-2">
 							<input
 								className="border-2 h-[40px] w-full placeholder:text-right text-right"
-								type="text"
+								type="tel"
 								name="adress"
 								id="adress"
 								placeholder="מספר פאלפון"
-								ref={phoneRef}
+								ref={phoneRef}  
+								    onChange={handleInputChange}
+
 							/>
 						</div>
 						<div className="text-[red] text-center text-xl">{isLoading ?  "Loading": error}</div>
-						<div className=" bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">
-							<button className="w-full">המשך לתשלום</button>
+						<div className=" ">
+							<button className="w-full h-full bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">המשך לתשלום</button>
 						</div>
 					</form>{" "}
 				</div>

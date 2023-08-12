@@ -15,10 +15,17 @@ async function createShipingInfo(req, res) {
 		totalAmount,
 		cart,
 	} = await req.body;
+	const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+	
 	try {
 		if (!email) {
 			return res.status(401).json("נא להזין אמייל");
 		}
+		if (!emailPattern.test(email)) {
+			return res.status(401).json("כתובת האימייל אינה תקינה");
+		}
+	
 		if (!name) {
 			return res.status(401).json("נא להזין שם ");
 		}
@@ -77,15 +84,15 @@ async function createShipingInfo(req, res) {
 						MaxQuantity: "12",
 					},
 					Customer: {
-						Email: "someOne@gmail.com",
-						Name: "someOne",
-						PhoneNumber: "05418481851",
+						Email: email,
+						Name: name,
+						PhoneNumber: phone,
 						HolderId: "",
 						Attributes: {
 							HolderId: "required",
 							Name: "required",
 							PhoneNumber: "required",
-							Email: "optional",
+							Email: email,
 						},
 					},
 					CartItems: cartItems,
