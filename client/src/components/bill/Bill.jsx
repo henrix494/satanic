@@ -136,7 +136,7 @@ export default function Bill() {
 						</div>
 						<div className="text-[red] text-center text-xl">{isLoading ?  "Loading": error}</div>
 						<div className=" bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">
-							<button>המשך לתשלום</button>
+							<button className="w-full">המשך לתשלום</button>
 						</div>
 					</form>{" "}
 				</div>
