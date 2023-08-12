@@ -56,7 +56,7 @@ async function createShipingInfo(req, res) {
 					Amount: item.price,
 					Currency: "ILS",
 					Name: item.title,
-					Description: item.des,
+					Description:`${item.des}  ${item.size} גודל  `,
 					Quantity: item.que,
 					Image: item.img[0], // Assuming img is an array, use the first URL
 					IsTaxFree: "false",
