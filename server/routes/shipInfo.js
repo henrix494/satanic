@@ -92,7 +92,7 @@ async function createShipingInfo(req, res) {
 							HolderId: "required",
 							Name: "required",
 							PhoneNumber: "required",
-							Email: email,
+							Email: "optional",
 						},
 					},
 					CartItems: cartItems,
