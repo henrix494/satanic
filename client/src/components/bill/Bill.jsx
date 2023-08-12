@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useRef } from "react";
+import { useRef,useState } from "react";
 export default function Bill() {
 	const cartData = useSelector((state) => state.cart.items);
 	const totalAmount = cartData.reduce((total, item) => {
@@ -13,11 +13,13 @@ export default function Bill() {
 	const streetRef = useRef(null);
 	const homeNumRef = useRef(null);
 	const phoneRef = useRef(null);
-
+	const[error,setError] = useState("")
+	const [isLoading,setIsLoading] = useState(false)
 	const postHandler = async (e) => {
 		e.preventDefault();
-
+		setIsLoading(true)
 		const data = await fetch("https://satanic-omega.vercel.app/payNow", {
+			
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -35,13 +37,18 @@ export default function Bill() {
 		});
 
 		if (data.status === 401) {
+			setIsLoading(false)
+
 			const resData = await data.json();
-			console.log(resData);
+			setError(resData);
 		}
 		if (data.status === 200) {
+			setIsLoading(false)
+			setError("")
 			const resData = await data.json();
-			console.log(cartData);
-			console.log(resData);
+			
+			window.open(resData.Data.SessionUrl)
+			
 		}
 	};
 	return (
@@ -50,7 +57,7 @@ export default function Bill() {
 				<div className=" border-r-2  pr-10 max-lg:px-10 w-[30vw] max-lg:w-full max-lg:order-2">
 					<form
 						onSubmit={(e) => postHandler(e)}
-						className="flex flex-col text-right gap-6">
+						className="flex flex-col text-right gap-6 ">
 						<label className="text-3xl font-bold" htmlFor="email">
 							אמייל
 						</label>
@@ -64,7 +71,7 @@ export default function Bill() {
 						<h3 className="text-3xl font-bold">משלוח</h3>
 						<div className="flex flex-row-reverse  text-right gap-2">
 							<input
-								className="border-2 h-[40px] w-1/2 placeholder:text-right"
+								className="border-2 h-[40px] w-1/2 placeholder:text-right text-right"
 								type="text"
 								name="name"
 								id="name"
@@ -72,7 +79,7 @@ export default function Bill() {
 								ref={nameRef}
 							/>
 							<input
-								className="border-2 h-[40px]  w-1/2 placeholder:text-right"
+								className="border-2 h-[40px]  w-1/2 placeholder:text-right text-right"
 								type="text"
 								name="lastName"
 								id="lastName"
@@ -82,7 +89,7 @@ export default function Bill() {
 						</div>{" "}
 						<div className="  text-right gap-2">
 							<input
-								className="border-2 h-[40px] w-full placeholder:text-right"
+								className="border-2 h-[40px] w-full placeholder:text-right text-right"
 								type="text"
 								name="adress"
 								id="adress"
@@ -92,7 +99,7 @@ export default function Bill() {
 						</div>
 						<div className="flex  text-right gap-2">
 							<input
-								className="border-2 h-[40px] w-full placeholder:text-right"
+								className="border-2 h-[40px] w-full placeholder:text-right text-right"
 								type="text"
 								name="adress"
 								id="adress"
@@ -100,7 +107,7 @@ export default function Bill() {
 								ref={homeNumRef}
 							/>{" "}
 							<input
-								className="border-2 h-[40px] w-full placeholder:text-right"
+								className="border-2 h-[40px] w-full placeholder:text-right text-right"
 								type="text"
 								name="adress"
 								id="adress"
@@ -108,7 +115,7 @@ export default function Bill() {
 								ref={streetRef}
 							/>{" "}
 							<input
-								className="border-2 h-[40px] w-full placeholder:text-right"
+								className="border-2 h-[40px] w-full placeholder:text-right text-right"
 								type="text"
 								name="city"
 								id="city"
@@ -118,7 +125,7 @@ export default function Bill() {
 						</div>{" "}
 						<div className="  text-right gap-2">
 							<input
-								className="border-2 h-[40px] w-full placeholder:text-right"
+								className="border-2 h-[40px] w-full placeholder:text-right text-right"
 								type="text"
 								name="adress"
 								id="adress"
@@ -126,6 +133,7 @@ export default function Bill() {
 								ref={phoneRef}
 							/>
 						</div>
+						<div className="text-[red] text-center text-xl">{isLoading ?  "Loading": error}</div>
 						<div className=" bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">
 							<button>המשך לתשלום</button>
 						</div>

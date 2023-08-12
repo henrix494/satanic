@@ -30,7 +30,7 @@ function App() {
 								<Hero />
 							</div>
 							<MainPage />
-							{/* testwefWascsa */}
+							
 						</>
 					}
 				/>

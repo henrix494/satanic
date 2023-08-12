@@ -22,6 +22,9 @@ const shipInfoSchema = new Schema({
 	phone: {
 		type: String,
 	},
+	cart:{
+		type :Array
+	}
 });
 const ShippingInfo =
 	models.ShippingInfo || model("ShippingInfo", shipInfoSchema);

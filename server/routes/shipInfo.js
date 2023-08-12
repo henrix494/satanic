@@ -37,6 +37,7 @@ async function createShipingInfo(req, res) {
 				street: street,
 				numOfAprt: numOfAprt,
 				phone: phone,
+				cart:cart
 			});
 
 			await newShipingInfo.save();
