@@ -49,7 +49,7 @@ async function createShipingInfo(req, res) {
 					Amount: item.price,
 					Currency: "ILS",
 					Name: item.title,
-					Description: "מכונת קפה ידנית לחווית קפה מושלמת",
+					Description: item.des,
 					Quantity: item.que,
 					Image: item.img[0], // Assuming img is an array, use the first URL
 					IsTaxFree: "false",
