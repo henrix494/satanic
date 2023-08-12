@@ -33,7 +33,8 @@ export default function Bill() {
 				numOfAprt: homeNumRef.current.value,
 				phone: phoneRef.current.value,
 				cart: cartData,
-				totalAmount:totalAmount
+				totalAmount:totalAmount,
+				
 			}),
 		});
 
@@ -42,6 +43,7 @@ export default function Bill() {
 
 			const resData = await data.json();
 			setError(resData);
+			console.log(cartData)
 		}
 		if (data.status === 200) {
 			setIsLoading(false)

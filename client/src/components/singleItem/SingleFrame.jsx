@@ -55,6 +55,7 @@ export default function SingleFrame() {
 		id: itemDate._id,
 		title: itemDate.title,
 		img: itemDate.images,
+		des:itemDate.description,
 		que: amount,
 		price: price,
 		index: currentButton,

@@ -40,8 +40,7 @@ export default function SingleManShirt() {
 		scrollTo(0, 0);
 		callMe();
 	}, [click]);
-	console.log(itemId);
-	console.log(itemDate);
+	
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);
 		console.log(titleTest);
@@ -103,6 +102,7 @@ export default function SingleManShirt() {
 		id: itemDate._id,
 		title: itemDate.title,
 		img: itemDate.images,
+		des:itemDate.description,
 		que: amount,
 		price:
 			itemDate._id === "64cceb88690de501437f2475" ||

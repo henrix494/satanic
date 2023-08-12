@@ -103,6 +103,7 @@ export default function SingleWomanShirt() {
 		id: itemDate._id,
 		title: itemDate.title,
 		img: itemDate.images,
+		des:itemDate.description,
 		que: amount,
 		price:
 			itemDate._id === "64cceb88690de501437f2475" ||
