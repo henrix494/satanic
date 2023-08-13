@@ -30,7 +30,11 @@ function App() {
 								<Hero />
 							</div>
 							<MainPage />
+<<<<<<< HEAD
 							{/* asc */}
+=======
+							
+>>>>>>> bf3c068d322b5fe66084190dde083536f286650a
 						</>
 					}
 				/>
