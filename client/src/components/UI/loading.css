@@ -1,0 +1,115 @@
+@-webkit-keyframes flash {
+	0% {
+		background-position: -468px 0;
+	}
+	100% {
+		background-position: 468px 0;
+	}
+}
+
+@keyframes flash {
+	0% {
+		background-position: -468px 0;
+	}
+	100% {
+		background-position: 468px 0;
+	}
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+.wrapper {
+	color: #141823;
+	padding: 20px;
+	padding-bottom: 60px;
+}
+
+.item {
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	padding: 12px;
+
+	position: relative;
+	max-width: 472px;
+	height: 300px;
+}
+
+.round-box {
+	width: 50px;
+	margin: 10px;
+	height: 50px;
+	border-radius: 100%;
+}
+
+.animated-background {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-name: flash;
+	animation-name: flash;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	background: -webkit-linear-gradient(
+		left,
+		#eeeeee 8%,
+		#dddddd 18%,
+		#eeeeee 33%
+	);
+	background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+	-webkit-background-size: 800px 104px;
+	position: relative;
+}
+
+.rect1 {
+	width: 50%;
+	float: left;
+	top: 25px;
+	left: 80px;
+	margin-top: 10px;
+	height: 12px;
+	position: absolute;
+}
+
+.rect2 {
+	width: 55%;
+	float: left;
+	top: 45px;
+	left: 80px;
+	margin-top: 10px;
+	height: 12px;
+	position: absolute;
+}
+
+.rect3 {
+	width: 70%;
+	float: left;
+	top: 80px;
+	left: 25px;
+	margin-top: 10px;
+	height: 10px;
+	position: absolute;
+}
+
+.rect4 {
+	width: 75%;
+	float: left;
+	top: 95px;
+	left: 25px;
+	margin-top: 10px;
+	height: 10px;
+	position: absolute;
+}
+
+.rect5 {
+	width: 75%;
+	float: left;
+	top: 110px;
+	left: 25px;
+	margin-top: 10px;
+	height: 10px;
+	position: absolute;
+}
