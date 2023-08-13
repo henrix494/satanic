@@ -11,7 +11,7 @@ export default function SingleWomanShirt() {
 	const [sizeArray, setSizeArray] = useState([]);
 	const [currentSize, setCurrentSize] = useState(`XS`);
 	const [price, setPrice] = useState(100);
-	
+
 	const [loading, setLoading] = useState(true);
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
@@ -45,13 +45,12 @@ export default function SingleWomanShirt() {
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);
 		setCurrentButton(index);
-		
 	};
 	const newItem = {
 		id: itemDate._id,
 		title: itemDate.title,
 		img: itemDate.images,
-		des:itemDate.description,
+		des: itemDate.description,
 		que: amount,
 		price: price,
 		index: currentButton,
@@ -64,7 +63,7 @@ export default function SingleWomanShirt() {
 	return (
 		<>
 			<div
-				className={`mt-[10%]  ${
+				className={`mt-[10%] mb-10   ${
 					!loading && "flex flex-col items-center justify-center "
 				} max-lg:mt-[30%] max-lg:px-5`}>
 				{loading ? (
@@ -83,10 +82,7 @@ export default function SingleWomanShirt() {
 										{" "}
 										<div>
 											{" "}
-											<p className=" text-2xl">
-												₪
-												{ price}
-											</p>
+											<p className=" text-2xl">₪{price}</p>
 										</div>
 										<div>
 											{" "}

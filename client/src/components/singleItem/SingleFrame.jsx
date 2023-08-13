@@ -55,7 +55,7 @@ export default function SingleFrame() {
 		id: itemDate._id,
 		title: itemDate.title,
 		img: itemDate.images,
-		des:itemDate.description,
+		des: itemDate.description,
 		que: amount,
 		price: price,
 		index: currentButton,
@@ -68,7 +68,7 @@ export default function SingleFrame() {
 	return (
 		<>
 			<div
-				className={`mt-[10%]  ${
+				className={`mt-[10%] mb-10  ${
 					!loading && "flex flex-col items-center justify-center "
 				} max-lg:mt-[30%] max-lg:px-5`}>
 				{loading ? (

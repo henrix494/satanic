@@ -13,6 +13,7 @@ import SingleWomanShirt from "./components/singleItem/SingleWomanShirt";
 import AllItems from "./components/Allitems/AllItems";
 import Bill from "./components/bill/Bill";
 import { Routes, Route } from "react-router-dom";
+import Contact from "./components/Contact/Contact";
 function App() {
 	return (
 		<>
@@ -30,6 +31,7 @@ function App() {
 								<Hero />
 							</div>
 							<MainPage />
+							<Contact />
 						</>
 					}
 				/>

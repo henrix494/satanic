@@ -49,10 +49,6 @@ export default function Navbar() {
 							<h4>נשים</h4>
 						</Link>
 
-						<p className="hover:opacity-80 transition-all cursor-pointer">
-							עלינו
-						</p>
-
 						<Link to={"/cart"}>
 							<div className=" relative">
 								<img className="w-5 cursor-pointer" src={cart} alt="" />{" "}
@@ -129,22 +125,7 @@ export default function Navbar() {
 										onClick={() => setIsHam(false)}>
 										<h4>נשים</h4>
 									</Link>
-									<p className="hover:opacity-80 transition-all ">עלינו</p>
-									<Link to={"/cart"}>
-										<div className=" relative">
-											<img className="w-5 cursor-pointer" src={cart} alt="" />{" "}
-											<div className="absolute top-[-10px] right-[-10px] text-sm">
-												<p> {totalQuantity > 0 && <p>{totalQuantity}</p>} </p>
-											</div>
-										</div>
-									</Link>
 								</div>{" "}
-								<Link to={"/"}>
-									{" "}
-									<h2 className="text-[black] text-center w-full font-[p22-spooky,sans-serif] text-5xl">
-										Satanic
-									</h2>
-								</Link>
 							</div>
 						</div>
 					</div>
