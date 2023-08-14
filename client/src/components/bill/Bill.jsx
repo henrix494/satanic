@@ -50,7 +50,7 @@ export default function Bill() {
 			setError("");
 			const resData = await data.json();
 
-			window.open(resData.Data.SessionUrl);
+			window.open(resData.Data.SessionUrl, `_blank`);
 		}
 	};
 	const handleInputChange = (event) => {
