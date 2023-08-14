@@ -20,7 +20,7 @@ export default function ManShirt() {
 					alt=""
 				/>
 			</div>
-			<div className="text-[white] flex items-center justify-center w-[50vw] max-lg:w-full ">
+			<div className="text-[white] flex items-center justify-center w-[50vw] max-lg:w-full  max-lg:pt-7">
 				<div className="flex flex-col gap-5 justify-center items-center">
 					<h2 className=" text-4xl">חולצות גברים </h2>{" "}
 					<Link to={"/man_shirts"}>

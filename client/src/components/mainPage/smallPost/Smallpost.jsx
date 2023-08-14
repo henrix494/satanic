@@ -7,7 +7,7 @@ export default function Smallpost() {
 	const [isMouseIn, setIsMouseIn] = useState(false);
 	return (
 		<div className="flex bg-black max-lg:flex-col  max-lg:pb-20">
-			<div className="w-[50vw] flex justify-center items-center text-white max-lg:order-1 max-lg:w-full ">
+			<div className="w-[50vw] flex justify-center items-center text-white max-lg:order-1 max-lg:w-full  max-lg:pt-7">
 				<div className="flex flex-col gap-5 justify-center items-center">
 					<h2 className=" text-4xl"> תמונות קיר</h2>
 					<Link to={"/frames"}>

@@ -9,7 +9,7 @@ export default function Poster() {
 	return (
 		<div className={`bg-black flex  z-[-1] max-lg:flex-col max-lg:pb-20`}>
 			<div
-				className=" overflow-hidden"
+				className=" overflow-hidden "
 				onMouseEnter={() => setIsmouseIn(true)}
 				onMouseLeave={() => setIsmouseIn(false)}>
 				{" "}
@@ -21,7 +21,7 @@ export default function Poster() {
 					alt=""
 				/>
 			</div>
-			<div className="text-[white] flex items-center justify-center w-[50vw] max-lg:w-full ">
+			<div className="text-[white] flex items-center justify-center w-[50vw] max-lg:w-full max-lg:pt-7">
 				<div className="flex flex-col gap-5 justify-center items-center">
 					<h2 className=" text-4xl max-lg:text-center">פוסטרים ענקיים</h2>
 					<Link to={"/bigPosters"}>
