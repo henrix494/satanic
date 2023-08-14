@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
+import Heart from "../UI/Heart";
 export default function Bill() {
 	const cartData = useSelector((state) => state.cart.items);
 	const totalAmount = cartData.reduce((total, item) => {
@@ -145,7 +146,7 @@ export default function Bill() {
 							/>
 						</div>
 						<div className="text-[red] text-center text-xl">
-							{isLoading ? "Loading" : error}
+							{isLoading ? <Heart /> : error}
 						</div>
 						<div className=" ">
 							<button className="w-full h-full bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">

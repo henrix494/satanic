@@ -17,7 +17,6 @@ async function createShipingInfo(req, res) {
 	} = await req.body;
 	const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-	
 	try {
 		if (!email) {
 			return res.status(401).json("נא להזין אמייל");
@@ -25,7 +24,7 @@ async function createShipingInfo(req, res) {
 		if (!emailPattern.test(email)) {
 			return res.status(401).json("כתובת האימייל אינה תקינה");
 		}
-	
+
 		if (!name) {
 			return res.status(401).json("נא להזין שם ");
 		}
@@ -44,9 +43,8 @@ async function createShipingInfo(req, res) {
 				street: street,
 				numOfAprt: numOfAprt,
 				phone: phone,
-				cart:cart,
-				totalPay:totalAmount
-
+				cart: cart,
+				totalPay: totalAmount,
 			});
 
 			await newShipingInfo.save();
@@ -56,7 +54,7 @@ async function createShipingInfo(req, res) {
 					Amount: item.price,
 					Currency: "ILS",
 					Name: item.title,
-					Description:`${item.des} גודל ${item.size}   `,
+					Description: `${item.des} גודל ${item.size}   `,
 					Quantity: item.que,
 					Image: item.img[0], // Assuming img is an array, use the first URL
 					IsTaxFree: "false",
@@ -67,8 +65,8 @@ async function createShipingInfo(req, res) {
 					Key: process.env.zcredit,
 					Local: "He",
 					UniqueId: "",
-					SuccessUrl: "https://www.kapit-coffee.com/",
-					CancelUrl: "",
+					SuccessUrl: "https://satanic-front.vercel.app/",
+					CancelUrl: "https://satanic-front.vercel.app/",
 					CallbackUrl: "",
 					PaymentType: "regular",
 					CreateInvoice: "false",

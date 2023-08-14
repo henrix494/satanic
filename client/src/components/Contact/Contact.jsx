@@ -1,13 +1,16 @@
 import { useRef, useState } from "react";
+import Heart from "../UI/Heart";
 export default function Contact() {
 	const emailRef = useRef(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
+	const [secMSG, setSecMSG] = useState("");
 
 	// https://satanic-omega.vercel.app/emailInfo
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
+		setLoading(true);
 		const postHandler = await fetch(
 			"https://satanic-omega.vercel.app/emailInfo",
 			{
@@ -30,12 +33,13 @@ export default function Contact() {
 			setLoading(false);
 			setError("");
 			const resData = await postHandler.json();
-			setError(resData);
+			setError("");
+			setSecMSG(resData);
 		}
 	};
 
 	return (
-		<div className="h-[260px] flex items-center justify-center text-center">
+		<div className="h-[260px] flex items-center justify-center text-center flex-col gap-2">
 			<div>
 				{" "}
 				<div className=" max">
@@ -66,7 +70,14 @@ export default function Contact() {
 					</div>
 				</form>
 			</div>
-			{error}
+			<div>
+				{loading && <Heart />}
+				{error ? (
+					<div className="text-[red]">{error}</div>
+				) : (
+					<div className="text-[green]">{secMSG}</div>
+				)}
+			</div>
 		</div>
 	);
 }
