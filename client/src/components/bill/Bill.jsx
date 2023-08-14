@@ -16,7 +16,7 @@ export default function Bill() {
 	const phoneRef = useRef(null);
 	const [error, setError] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
-
+	const [url, setUrl] = useState("");
 	const postHandler = async (e) => {
 		e.preventDefault();
 		setIsLoading(true);
@@ -50,7 +50,7 @@ export default function Bill() {
 			setError("");
 			const resData = await data.json();
 
-			window.open(resData.Data.SessionUrl, `_blank`);
+			setUrl(resData.Data.SessionUrl);
 		}
 	};
 	const handleInputChange = (event) => {
@@ -64,11 +64,11 @@ export default function Bill() {
 
 	return (
 		<div className="flex justify-center mb-20 ">
-			<div className="flex mt-40 max-lg:flex-col ">
+			<div className={`flex mt-40 max-lg:flex-col  `}>
 				<div className=" border-r-2  pr-10 max-lg:px-10 w-[30vw] max-lg:w-full max-lg:order-2">
 					<form
 						onSubmit={(e) => postHandler(e)}
-						className="flex flex-col text-right gap-6 ">
+						className={`flex flex-col text-right gap-6 ${url && "hidden"}`}>
 						<label className="text-3xl font-bold" htmlFor="email">
 							אמייל
 						</label>
@@ -154,6 +154,17 @@ export default function Bill() {
 							</button>
 						</div>
 					</form>{" "}
+					<div className={` relative ${!url && "hidden"}`}>
+						{" "}
+						<iframe className="w-full h-screen" src={url}></iframe>
+						<div
+							className=" absolute top-0 w-full  h-[50px] flex justify-center items-center bg-[black] text-[white]"
+							onClick={() => {
+								setUrl("");
+							}}>
+							חזור
+						</div>
+					</div>
 				</div>
 				<div className=" ml-5 max-lg:ml-0 max-lg:px-5 w-[30vw] max-lg:w-full flex flex-col gap-10 ">
 					{cartData.map((item) => {
