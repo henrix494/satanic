@@ -25,7 +25,7 @@ export default function WomanShirts() {
 	}, []);
 
 	return (
-		<div className="mt-40">
+		<div className="mt-40 mb-[5%]">
 			{isLoading ? (
 				<Loading />
 			) : (

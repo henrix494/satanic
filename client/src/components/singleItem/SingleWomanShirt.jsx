@@ -11,7 +11,7 @@ export default function SingleWomanShirt() {
 	const [sizeArray, setSizeArray] = useState([]);
 	const [currentSize, setCurrentSize] = useState(`XS`);
 	const [price, setPrice] = useState(79.99);
-
+	const [highPrice, setHighPrice] = useState(99.99);
 	const [loading, setLoading] = useState(true);
 	const [amount, SetAmount] = useState(1);
 	const [randomData, setRandomData] = useState([]);
@@ -52,7 +52,14 @@ export default function SingleWomanShirt() {
 		img: itemDate.images,
 		des: itemDate.description,
 		que: amount,
-		price: price,
+		price:
+			itemDate._id === "64d13ee9166feb585b6a7af2" ||
+			itemDate._id === "64d13efc166feb585b6a7af5" ||
+			itemDate._id === "64d13f08166feb585b6a7af6" ||
+			itemDate._id == "64d13f26166feb585b6a7afa" ||
+			itemDate._id === "64d13f2c166feb585b6a7afb"
+				? highPrice
+				: price,
 		index: currentButton,
 		size: currentSize,
 	};
@@ -63,7 +70,7 @@ export default function SingleWomanShirt() {
 	return (
 		<>
 			<div
-				className={`mt-[10%] mb-10   ${
+				className={`mt-[10%]   ${
 					!loading && "flex flex-col items-center justify-center "
 				} max-lg:mt-[30%] max-lg:px-5`}>
 				{loading ? (
@@ -82,7 +89,16 @@ export default function SingleWomanShirt() {
 										{" "}
 										<div>
 											{" "}
-											<p className=" text-2xl">₪{price}</p>
+											<p className=" text-2xl">
+												₪
+												{itemDate._id === "64d13ee9166feb585b6a7af2" ||
+												itemDate._id === "64d13efc166feb585b6a7af5" ||
+												itemDate._id === "64d13f08166feb585b6a7af6" ||
+												itemDate._id === "64d13f26166feb585b6a7afa" ||
+												itemDate._id === "64d13f2c166feb585b6a7afb"
+													? highPrice
+													: price}
+											</p>
 										</div>
 										<div>
 											{" "}
