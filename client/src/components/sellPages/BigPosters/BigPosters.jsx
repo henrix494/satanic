@@ -29,7 +29,7 @@ export default function BigPosters() {
 				<div className="flex flex-wrap justify-around gap-10 ">
 					{dataa.map((item) => {
 						return (
-							<div key={item.id}>
+							<div key={item._id}>
 								{" "}
 								<Link to={`/item/${item._id}`}>
 									{" "}

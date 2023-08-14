@@ -17,7 +17,6 @@ export default function WomanShirts() {
 				}
 			);
 			const jsonData = await data.json();
-			console.log(jsonData);
 			setData(jsonData);
 			setIsLoading(false);
 		};
@@ -38,7 +37,7 @@ export default function WomanShirts() {
 					<div className="flex flex-wrap justify-around gap-10 rounded-xl">
 						{dataa.map((item) => {
 							return (
-								<div key={item.id}>
+								<div key={item._id}>
 									{" "}
 									<Link to={`/SingleWomanShirts/${item._id}`}>
 										{" "}

@@ -40,8 +40,7 @@ export default function SingleWomanShirt() {
 		scrollTo(0, 0);
 		callMe();
 	}, [click]);
-	console.log(itemId);
-	console.log(itemDate);
+
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);
 		setCurrentButton(index);

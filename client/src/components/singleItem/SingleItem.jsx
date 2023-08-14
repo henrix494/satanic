@@ -39,7 +39,6 @@ export default function SingleItem() {
 		scrollTo(0, 0);
 		callMe();
 	}, [click]);
-	console.log(itemId);
 
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);

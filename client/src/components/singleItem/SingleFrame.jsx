@@ -35,11 +35,9 @@ export default function SingleFrame() {
 		scrollTo(0, 0);
 		callMe();
 	}, [click]);
-	console.log(itemId);
 
 	const changePrice = (e, index) => {
 		setCurrentSize(e.target.innerHTML);
-		console.log(titleTest);
 		setCurrentButton(index);
 
 		switch (true) {
@@ -165,7 +163,6 @@ export default function SingleFrame() {
 					</div>
 					<div className="flex  justify-center max-lg:flex-col max-lg:gap-10">
 						{randomData.map((item) => {
-							console.log(item);
 							return (
 								<div key={item._id} className="flex justify-center  ">
 									<div className="w-[80%]">

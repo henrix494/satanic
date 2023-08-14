@@ -63,7 +63,7 @@ export default function Cart() {
 						{titleTest.map((item) => {
 							return (
 								<div
-									key={item.id}
+									key={item._id}
 									className=" flex justify-around items-center   text-xl max-lg:text-xl border-b-2 pb-10 relative gap-10 ">
 									{" "}
 									<div className="flex-[0.8] max-lg:flex-1 ">
