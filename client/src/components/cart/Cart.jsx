@@ -18,7 +18,7 @@ export default function Cart() {
 			} `}>
 			<div className=" relative">
 				{" "}
-				<p className="text-6xl">סל הקניות</p>
+				<p className="text-6xl ">סל הקניות</p>
 				<div className=" absolute w-[70%] top-24 bg-black h-1 right-0 "></div>
 			</div>
 			{titleTest.length === 0 ? (
@@ -64,11 +64,17 @@ export default function Cart() {
 							return (
 								<div
 									key={item.id}
-									className=" flex justify-around items-center   text-xl max-lg:text-xl border-b-2 pb-10 relative gap-10">
+									className=" flex justify-around items-center   text-xl max-lg:text-xl border-b-2 pb-10 relative gap-10 ">
 									{" "}
-									<div className="flex-[0.8] max-lg:flex-1">
+									<div className="flex-[0.8] max-lg:flex-1 ">
 										{" "}
-										<p className="">{item.price * item.que}</p>
+										<p className="">
+											{" "}
+											<p>
+												<span className="font-bold ">סך הכל : </span>
+												{item.price * item.que}₪
+											</p>
+										</p>
 									</div>{" "}
 									<div className="   flex-[0.8]   max-lg:flex-1 ">
 										{" "}
@@ -114,9 +120,9 @@ export default function Cart() {
 									</button>
 								</Link>
 							</div>
-							<div>
+							<Link to={"/all_items"}>
 								<p className=" text-xl text-[red]">המשך בקניות</p>
-							</div>
+							</Link>
 						</div>
 					</div>{" "}
 				</>
@@ -125,19 +131,22 @@ export default function Cart() {
 			<div className="lg:hidden flex flex-col gap-0 mt-10 ">
 				{titleTest.map((item) => {
 					return (
-						<div key={item._id} className=" mt-10   relative   ">
+						<div key={item._id} className=" mt-10   relative border-b-2 pb-5 ">
 							<div className="  flex flex-row-reverse  ">
-								<div className=" flex flex-row-reverse gap-4">
+								<div className=" flex flex-col gap-4">
 									{" "}
-									<img src={item.img} className=" w-[50%]"></img>
+									<img src={item.img} className=" w-[60%] self-end"></img>
 									<div className="">
 										{" "}
 										<p className="text-2xl"> {item.title} </p>
-										<p className="text-lg"> {item.size} </p>
+										<p className="text-lg "> {item.size} </p>
 										<p>
 											{item.price} X {item.que}
 										</p>
-										<p>סך הכל :{item.price * item.que}</p>
+										<p>
+											<span className="font-bold">סך הכל : </span>
+											{item.price * item.que}₪
+										</p>
 									</div>
 								</div>
 								<div
@@ -164,7 +173,7 @@ export default function Cart() {
 				<div className="mt-10">
 					<Link to={"/bill"}>
 						<button
-							className={` border-2 px-20 py-2 bg-black text-white ${
+							className={` border-2 px-20 py-2 bg-[black] text-white ${
 								titleTest.length === 0 && "hidden"
 							} `}>
 							צ`ק אאוט

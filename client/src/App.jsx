@@ -14,10 +14,12 @@ import AllItems from "./components/Allitems/AllItems";
 import Bill from "./components/bill/Bill";
 import { Routes, Route } from "react-router-dom";
 import Contact from "./components/Contact/Contact";
+import { Analytics } from "@vercel/analytics/react";
+
 function App() {
 	return (
 		<>
-			{" "}
+			<Analytics />{" "}
 			<div className=" relative  ">
 				<Navbar />
 			</div>

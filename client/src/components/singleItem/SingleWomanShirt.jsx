@@ -10,7 +10,7 @@ export default function SingleWomanShirt() {
 	const [itemDate, setItemDate] = useState([]);
 	const [sizeArray, setSizeArray] = useState([]);
 	const [currentSize, setCurrentSize] = useState(`XS`);
-	const [price, setPrice] = useState(100);
+	const [price, setPrice] = useState(79.99);
 
 	const [loading, setLoading] = useState(true);
 	const [amount, SetAmount] = useState(1);
