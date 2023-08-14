@@ -154,11 +154,11 @@ export default function Bill() {
 							</button>
 						</div>
 					</form>{" "}
-					<div className={` relative ${!url && "hidden"}`}>
+					<div className={` relative ${!url && "hidden"} max-lg:mt-5`}>
 						{" "}
 						<iframe className="w-full h-screen" src={url}></iframe>
 						<div
-							className=" absolute top-0 w-full  h-[50px] flex justify-center items-center bg-[black] text-[white]"
+							className=" absolute top-0 w-full  h-[50px] flex justify-center items-center bg-[black] text-[white] cursor-pointer"
 							onClick={() => {
 								setUrl("");
 							}}>
