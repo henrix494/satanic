@@ -48,10 +48,10 @@ export default function Contact() {
 				<form
 					onSubmit={(e) => submitHandler(e)}
 					className=" flex max-lg:flex-col max-lg:gap-5">
-					<div className=" flex flex-col">
+					<div className=" flex flex-col ">
 						{" "}
 						<label
-							className="self-start text-xl max-lg:mb-2 max-lg:mt-2"
+							className="self-start text-xl max-lg:mb-2 max-lg:mt-2 max-lg:self-end "
 							htmlFor="email">
 							מייל*
 						</label>
