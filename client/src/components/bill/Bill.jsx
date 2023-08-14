@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useRef,useState } from "react";
+import { useRef, useState, useEffect } from "react";
 export default function Bill() {
 	const cartData = useSelector((state) => state.cart.items);
 	const totalAmount = cartData.reduce((total, item) => {
@@ -13,15 +13,13 @@ export default function Bill() {
 	const streetRef = useRef(null);
 	const homeNumRef = useRef(null);
 	const phoneRef = useRef(null);
-	const[error,setError] = useState("")
-	const [isLoading,setIsLoading] = useState(false)
-	const [isValidEmail, setIsValidEmail] = useState(true);
+	const [error, setError] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 
 	const postHandler = async (e) => {
 		e.preventDefault();
-		setIsLoading(true)
+		setIsLoading(true);
 		const data = await fetch("https://satanic-omega.vercel.app/payNow", {
-			
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -35,34 +33,34 @@ export default function Bill() {
 				numOfAprt: homeNumRef.current.value,
 				phone: phoneRef.current.value,
 				cart: cartData,
-				totalAmount:totalAmount,
-				
+				totalAmount: totalAmount,
 			}),
 		});
 
 		if (data.status === 401) {
-			setIsLoading(false)
+			setIsLoading(false);
 
 			const resData = await data.json();
 			setError(resData);
-			console.log(cartData)
+			console.log(cartData);
 		}
 		if (data.status === 200) {
-			setIsLoading(false)
-			setError("")
+			setIsLoading(false);
+			setError("");
 			const resData = await data.json();
-			
-			window.open(resData.Data.SessionUrl)
-			
+
+			window.open(resData.Data.SessionUrl);
 		}
 	};
 	const handleInputChange = (event) => {
 		const inputValue = event.target.value;
-		const numericValue = inputValue.replace(/\D/g, ''); // Remove non-numeric characters
+		const numericValue = inputValue.replace(/\D/g, ""); // Remove non-numeric characters
 		phoneRef.current.value = numericValue;
-	  }; 
-	 
-	
+	};
+	useEffect(() => {
+		scrollTo(0, 0);
+	}, []);
+
 	return (
 		<div className="flex justify-center mb-20 ">
 			<div className="flex mt-40 max-lg:flex-col ">
@@ -74,8 +72,8 @@ export default function Bill() {
 							אמייל
 						</label>
 						<input
-        className={`border-2 h-[40px] text-right`}
-		type="text"
+							className={`border-2 h-[40px] text-right`}
+							type="text"
 							name="email"
 							id="email"
 							ref={emailRef}
@@ -142,14 +140,17 @@ export default function Bill() {
 								name="adress"
 								id="adress"
 								placeholder="מספר פאלפון"
-								ref={phoneRef}  
-								    onChange={handleInputChange}
-
+								ref={phoneRef}
+								onChange={handleInputChange}
 							/>
 						</div>
-						<div className="text-[red] text-center text-xl">{isLoading ?  "Loading": error}</div>
+						<div className="text-[red] text-center text-xl">
+							{isLoading ? "Loading" : error}
+						</div>
 						<div className=" ">
-							<button className="w-full h-full bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">המשך לתשלום</button>
+							<button className="w-full h-full bg-black text-white py-2 mt-4  text-center cursor-pointer hover:opacity-80 transition-all">
+								המשך לתשלום
+							</button>
 						</div>
 					</form>{" "}
 				</div>

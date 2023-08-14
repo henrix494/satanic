@@ -1,14 +1,16 @@
-import img from "../../assets/Decoracion.jpg";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem } from "../../features/CartSlice";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 export default function Cart() {
 	const titleTest = useSelector((state) => state.cart.items);
-	console.log(titleTest);
 	const dispatch = useDispatch();
 	const totalAmount = titleTest.reduce((total, item) => {
 		return total + item.price * item.que;
 	}, 0);
+	useEffect(() => {
+		scrollTo(0, 0);
+	}, []);
 	return (
 		<div
 			className={` mt-40 flex  flex-col items-end text-right max-lg:w-full max-lg:px-4 mb-10 ${
