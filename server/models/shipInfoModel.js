@@ -22,12 +22,15 @@ const shipInfoSchema = new Schema({
 	phone: {
 		type: String,
 	},
-	cart:{
-		type :Array
+	cart: {
+		type: Array,
 	},
-	totalPay:{
-		type:Number
-	}
+	totalPay: {
+		type: Number,
+	},
+	fullAdress: {
+		type: String,
+	},
 });
 const ShippingInfo =
 	models.ShippingInfo || model("ShippingInfo", shipInfoSchema);

@@ -35,6 +35,7 @@ export default function Bill() {
 				phone: phoneRef.current.value,
 				cart: cartData,
 				totalAmount: totalAmount,
+				fullAdress: fullAdressRef.current.value,
 			}),
 		});
 

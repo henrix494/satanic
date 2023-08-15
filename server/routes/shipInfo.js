@@ -14,6 +14,7 @@ async function createShipingInfo(req, res) {
 		phone,
 		totalAmount,
 		cart,
+		fullAdress,
 	} = await req.body;
 	const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -45,6 +46,7 @@ async function createShipingInfo(req, res) {
 				phone: phone,
 				cart: cart,
 				totalPay: totalAmount,
+				fullAdress: fullAdress,
 			});
 
 			await newShipingInfo.save();
