@@ -20,7 +20,6 @@ export default function SingleWomanShirt() {
 	const pathnameParts = location.pathname.split("/");
 	const itemId = pathnameParts[pathnameParts.length - 1];
 	const dispatch = useDispatch();
-	const titleTest = useSelector((state) => state.cart.items);
 	const [click, isClick] = useState(1);
 	useEffect(() => {
 		const callMe = async () => {
@@ -123,15 +122,22 @@ export default function SingleWomanShirt() {
 									})}
 								</div>
 								<div className="mt-10 flex flex-row-reverse gap-5 max-lg:flex-col max-lg:items-center">
-									<div className=" max-lg:order-2 ">
+									<div className=" max-lg:order-2 flex flex-col gap-5">
 										<button
-											className="bg-black text-white px-28 py-3 hover:opacity-80 transition-all"
+											className="bg-black text-white  py-3 hover:opacity-80 transition-all  max-h-[50px] h-[50px] w-[300px]"
 											onClick={() => addToCart()}
 											disabled={!amount}>
 											הוסף לעגלה
-										</button>
+										</button>{" "}
+										<Link
+											to={"/Bill"}
+											className="bg-black text-white  py-3 hover:opacity-80 transition-all  max-h-[50px] h-[50px] w-[300px] text-center"
+											onClick={() => addToCart()}
+											disabled={!amount}>
+											קנה עכשיו
+										</Link>
 									</div>{" "}
-									<div className="flex max-lg:h-[50px]  ">
+									<div className="flex max-lg:h-[50px] self-start h-[50px] max-lg:self-center   ">
 										<button
 											onClick={() => {
 												SetAmount((prev) => prev + 1);

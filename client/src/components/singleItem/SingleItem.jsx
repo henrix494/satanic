@@ -124,9 +124,9 @@ export default function SingleItem() {
 					<Loading />
 				) : (
 					<div className="flex justify-around w-[80vw] max-lg:w-full">
-						<div className="flex gap-40 max-lg:flex-col max-lg:gap-10 ">
+						<div className="flex gap-40 max-xl:flex-col max-xl:gap-10 ">
 							{" "}
-							<div className="text-right max-lg:order-1">
+							<div className="text-right max-xl:order-1">
 								{" "}
 								<div>
 									<p className="text-4xl max-lg:text-2xl font-semibold    ">
@@ -168,15 +168,22 @@ export default function SingleItem() {
 									})}
 								</div>
 								<div className="mt-10 flex flex-row-reverse gap-5 max-lg:flex-col max-lg:items-center">
-									<div className=" max-lg:order-2 ">
+									<div className=" max-lg:order-2 flex flex-col gap-5">
 										<button
-											className="bg-black text-white px-28 py-3 hover:opacity-80 transition-all"
+											className="bg-black text-white  py-3 hover:opacity-80 transition-all  max-h-[50px] h-[50px] w-[300px]"
 											onClick={() => addToCart()}
 											disabled={!amount}>
 											הוסף לעגלה
-										</button>
+										</button>{" "}
+										<Link
+											to={"/Bill"}
+											className="bg-black text-white  py-3 hover:opacity-80 transition-all  max-h-[50px] h-[50px] w-[300px] text-center"
+											onClick={() => addToCart()}
+											disabled={!amount}>
+											קנה עכשיו
+										</Link>
 									</div>{" "}
-									<div className="flex max-lg:h-[50px]  ">
+									<div className="flex max-lg:h-[50px] self-start h-[50px] max-lg:self-center   ">
 										<button
 											onClick={() => {
 												SetAmount((prev) => prev + 1);
@@ -206,7 +213,7 @@ export default function SingleItem() {
 								</div>
 							</div>
 							<img
-								className={` w-[40%] max-lg:w-full ${
+								className={` w-[40%] max-xl:w-full ${
 									itemDate._id === "64ccaa16e70b95472240d0f3" && "w-[40%]"
 								} `}
 								src={itemDate.images}
